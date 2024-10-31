@@ -1,0 +1,25 @@
+---
+# deploy-shop
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+      - name: test
+        image: chaewon0720/keduitlab:yellow
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 80
